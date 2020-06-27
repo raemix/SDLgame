@@ -1,7 +1,11 @@
 #pragma once
-#include <SDL.h>
 #include <iostream>
 
+#ifdef __linux__
+#include <SDL2/SDL.h>
+#elif WIN32_
+#include <SDL.h>
+#endif
 
 
 class Game

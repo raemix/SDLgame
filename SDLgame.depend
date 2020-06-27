@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1593261617 source:/home/raemix/dev/SDLgame/game.cpp
+	"game.h"
+
+1593262513 /home/raemix/dev/SDLgame/game.h
+	<iostream>
+	<SDL2/SDL.h>
+	<SDL.h>
+
+1593262554 source:/home/raemix/dev/SDLgame/main.cpp
+	"game.h"
+	<SDL2/SDL.h>
+	<SDL.h>
+
