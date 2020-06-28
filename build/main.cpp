@@ -1,10 +1,7 @@
 #include "game.h"
-
-#ifdef __linux__
 #include <SDL2/SDL.h>
-#elif WIN32_
-#include <SDL.h>
-#endif
+
+
 Game* game = nullptr;
 
 int main(int argc, char *argv[])
