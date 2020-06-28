@@ -9,7 +9,7 @@ OBJS = main.cpp game.cpp
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -IC:\dev\include
+INCLUDE_PATHS = -IC:\dev\include\SDL2
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
 LIBRARY_PATHS = -LC:\dev\lib
