@@ -1,5 +1,6 @@
 #include "game.h"
 
+SDL_Texture* playerTex;
 Game::Game()
 {
 	isRunning = true;
@@ -9,19 +10,19 @@ Game::~Game()
 {
 }
 
-void Game::Init(const char* title, int xPos, int yPos, int width, int height, bool fullscreen)
+void Game::Init(const char *title, int xPos, int yPos, int width, int height, bool fullscreen)
 {
 	int flags = 0;
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
+    {
+		printf("Subsystems initialized\n");
+    }
+    else
 	{
-		std::cout << "Subsystems initialized" << std::endl;
-	}
-	else
-	{
-		std::cout << "SDL Init Failed" << std::endl;
+		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
 		isRunning = false;
 	}
-	
+
 	if (fullscreen)
 	{
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -30,28 +31,27 @@ void Game::Init(const char* title, int xPos, int yPos, int width, int height, bo
 	{
 		flags = SDL_WINDOW_SHOWN;
 	}
-	SDL_CreateWindow(title, xPos, yPos, width, height, flags);
-	
-	if (window == 0)
-	{
-		std::cout << "Window created" << std::endl;
-	} else
-	{
-		std::cout << "Creation of window failed" << std::endl;
-		isRunning = false;
-	}
+
+    window = SDL_CreateWindow( title, xPos, yPos, width, height, SDL_WINDOW_SHOWN );
+    //if( window == NULL )
+    //{
+        printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+        isRunning = false;
+    //}
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	if (renderer == 0)
 	{
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		std::cout << "Renderer created" << std::endl;
+		printf("Renderer created\n");
 	}
 	else
 	{
-		std::cout << "Renderer creation failed" << std::endl;
+		printf("Renderer creation failed\n");
 		isRunning = false;
 	}
+
+	//SDL_Surface* tmpSurface = IMG_Load("/assets/face.png");
 }
 
 void Game::HandleEvents()
@@ -71,8 +71,8 @@ void Game::HandleEvents()
 
 void Game::Update()
 {
-	count++;
-	std::cout << count << std::endl;
+
+
 }
 
 void Game::Render()
@@ -87,7 +87,7 @@ void Game::Clean()
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
-	std::cout << "SDL Quit and Cleaned up" << std::endl;
+	printf("SDL Quit and Cleaned up\n");
 }
 
 

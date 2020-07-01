@@ -1,6 +1,7 @@
 #pragma once
-#include <iostream>
+#include <stdio.h>
 #include <SDL.h>
+#include <SDL_image.h>
 
 
 
@@ -19,10 +20,10 @@ public:
 
 
 private:
-	bool isRunning;
-	SDL_Window* window;
-	SDL_Renderer* renderer;
-	int count = 0;
+	bool isRunning = true;
+	SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
+
 
 
 };
