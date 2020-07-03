@@ -21,8 +21,8 @@ public:
 
 private:
 	bool isRunning = true;
-	SDL_Window* window = nullptr;
-	SDL_Renderer* renderer = nullptr;
+	SDL_Window *window = nullptr;
+	SDL_Renderer *renderer = nullptr;
 
 
 
