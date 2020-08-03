@@ -3,10 +3,9 @@
 
 
 
-GameObject::GameObject(const char* textureSheet, SDL_Renderer* ren, int x, int y)
+GameObject::GameObject(const char* textureSheet, int x, int y)
 {
-	renderer = ren;
-	objTexture = TextureManager::LoadTexture(textureSheet, ren);
+	objTexture = TextureManager::LoadTexture(textureSheet);
 	srcRect.x = 0;
 	srcRect.y = 0;
 	srcRect.w = 32;
@@ -33,5 +32,5 @@ void GameObject::Update()
 
 void GameObject::Render()
 {
-	SDL_RenderCopy(renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }

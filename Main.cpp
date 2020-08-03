@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 	game->init("My sdl window", 
 		SDL_WINDOWPOS_CENTERED, 
 		SDL_WINDOWPOS_CENTERED, 
-		1200, 
-		900, 
+		800, 
+		640, 
 		false);
 
 	

@@ -12,7 +12,7 @@ class Game
 
 public:
 
-	SDL_Renderer* renderer;
+	static SDL_Renderer* renderer;
 	Game();
 	~Game();
 	void init(const char* title, int xpos, int ypos, int width, int height, bool fullScreen);
